@@ -32,6 +32,46 @@ env:
   JDK_DISTRIBUTION: 'adopt'
 
 jobs:
+  docker:
+    name: Test Build & Release Docker Image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
+        with:
+          persist-credentials: false
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@29109295f81e9208d7d86ff1c6c12d2833863392 # v3.6.0
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@b5ca514318bd6ebac0fb2aedd5d36ec1b5c232a2 # v3.10.0
+      - name: Test image build
+        uses: docker/build-push-action@1dc73863535b631f98b2378be8619f83b136f4a0 # v6.17.0
+        with:
+          context: hbase-docker
+          push: false
+          tags: jack20191124/hbase:latest
+      - name: Login to DockerHub
+        if: github.ref == 'refs/heads/master'
+        uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3.4.0
+        with:
+          username: jack20191124
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Push image to DockerHub
+        if: github.ref == 'refs/heads/master'
+        uses: docker/build-push-action@1dc73863535b631f98b2378be8619f83b136f4a0 # v6.17.0
+        with:
+          context: hbase-docker
+          push: true
+          tags: jack20191124/hbase:latest
+      - name: Push image Description
+        if: github.ref == 'refs/heads/master'
+        uses: peter-evans/dockerhub-description@432a30c9e07499fd01da9f8a49f0faf9e0ca5b77 # v4.0.2
+        with:
+          username: jack20191124
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          repository: jack20191124/hbase
+          readme-filepath: hbase-docker/README.md
+
   documentation:
     name: Test & Release Documentation
     runs-on: ubuntu-latest
