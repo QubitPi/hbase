@@ -19,6 +19,8 @@ under the License.
 
 ![hbase-logo](https://raw.githubusercontent.com/apache/hbase/master/src/site/resources/images/hbase_logo_with_orca_large.png)
 
+[![Docker Hub][Docker Pulls Badge]][Docker Hub URL]
+
 [Apache HBase](https://hbase.apache.org) is an open-source, distributed, versioned, column-oriented store modeled after Google' [Bigtable](https://research.google.com/archive/bigtable.html): A Distributed Storage System for Structured Data by Chang et al. Just as Bigtable leverages the distributed data storage provided by the Google File System, HBase provides Bigtable-like capabilities on top of [Apache Hadoop](https://hadoop.apache.org/).
 
 # Getting Start
@@ -43,3 +45,6 @@ Notice that, the public registration for https://issues.apache.org/ has been dis
 Apache HBase is made available under the [Apache License, version 2.0](https://hbase.apache.org/license.html)
 
 The HBase distribution includes cryptographic software. See the export control notice [here](https://hbase.apache.org/export_control.html).
+
+[Docker Pulls Badge]: https://img.shields.io/docker/pulls/jack20191124/hbase?style=for-the-badge&logo=docker&logoColor=white&labelColor=5BBCFF&color=7EA1FF
+[Docker Hub URL]: https://hub.docker.com/r/jack20191124/hbase
