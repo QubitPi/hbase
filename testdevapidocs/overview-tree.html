@@ -1515,6 +1515,7 @@ loadScripts(document, 'script');</script>
 <li class="circle">org.apache.hadoop.hbase.client.<a href="org/apache/hadoop/hbase/client/TestFromClientSideWithCoprocessor5.html" class="type-name-link" title="class in org.apache.hadoop.hbase.client">TestFromClientSideWithCoprocessor5</a></li>
 </ul>
 </li>
+<li class="circle">org.apache.hadoop.hbase.client.<a href="org/apache/hadoop/hbase/client/TestTableScanMetrics.html" class="type-name-link" title="class in org.apache.hadoop.hbase.client">TestTableScanMetrics</a></li>
 </ul>
 </li>
 <li class="circle">org.apache.hadoop.hbase.replication.FSReplicationPeerStorage (implements org.apache.hadoop.hbase.replication.ReplicationPeerStorage)
@@ -2394,6 +2395,11 @@ loadScripts(document, 'script');</script>
 <li class="circle">org.apache.hadoop.hbase.master.procedure.<a href="org/apache/hadoop/hbase/master/procedure/TestCreateTableProcedure.CreateTableProcedureOnHDFSFailure.html" class="type-name-link" title="class in org.apache.hadoop.hbase.master.procedure">TestCreateTableProcedure.CreateTableProcedureOnHDFSFailure</a></li>
 </ul>
 </li>
+<li class="circle">org.apache.hadoop.hbase.master.procedure.EnableTableProcedure
+<ul>
+<li class="circle">org.apache.hadoop.hbase.master.procedure.<a href="org/apache/hadoop/hbase/master/procedure/TestSnapshotProcedureConcurrently.TestEnableTableProcedure.html" class="type-name-link" title="class in org.apache.hadoop.hbase.master.procedure">TestSnapshotProcedureConcurrently.TestEnableTableProcedure</a></li>
+</ul>
+</li>
 <li class="circle">org.apache.hadoop.hbase.master.procedure.SnapshotProcedure
 <ul>
 <li class="circle">org.apache.hadoop.hbase.master.procedure.<a href="org/apache/hadoop/hbase/master/procedure/TestSnapshotProcedure.DelaySnapshotProcedure.html" class="type-name-link" title="class in org.apache.hadoop.hbase.master.procedure">TestSnapshotProcedure.DelaySnapshotProcedure</a></li>
@@ -2553,7 +2559,7 @@ loadScripts(document, 'script');</script>
 </ul>
 </li>
 <li class="circle">org.apache.hadoop.hbase.master.assignment.<a href="org/apache/hadoop/hbase/master/assignment/RegionServerHostingReplicaSlowOpenCoprocessor.html" class="type-name-link" title="class in org.apache.hadoop.hbase.master.assignment">RegionServerHostingReplicaSlowOpenCoprocessor</a> (implements org.apache.hadoop.hbase.coprocessor.RegionCoprocessor, org.apache.hadoop.hbase.coprocessor.RegionObserver)</li>
-<li class="circle">org.apache.hadoop.hbase.quotas.RegionServerRpcQuotaManager (implements org.apache.hadoop.hbase.quotas.RpcQuotaManager)
+<li class="circle">org.apache.hadoop.hbase.quotas.RegionServerRpcQuotaManager (implements org.apache.hadoop.hbase.conf.ConfigurationObserver, org.apache.hadoop.hbase.quotas.RpcQuotaManager)
 <ul>
 <li class="circle">org.apache.hadoop.hbase.regionserver.<a href="org/apache/hadoop/hbase/regionserver/TestScannerLeaseCount.MockedRpcQuotaManager.html" class="type-name-link" title="class in org.apache.hadoop.hbase.regionserver">TestScannerLeaseCount.MockedRpcQuotaManager</a></li>
 </ul>
@@ -3070,6 +3076,7 @@ loadScripts(document, 'script');</script>
 <li class="circle">org.apache.hadoop.hbase.client.<a href="org/apache/hadoop/hbase/client/TestAsyncTableScanException.html" class="type-name-link" title="class in org.apache.hadoop.hbase.client">TestAsyncTableScanException</a></li>
 <li class="circle">org.apache.hadoop.hbase.client.<a href="org/apache/hadoop/hbase/client/TestAsyncTableScanException.ErrorCP.html" class="type-name-link" title="class in org.apache.hadoop.hbase.client">TestAsyncTableScanException.ErrorCP</a> (implements org.apache.hadoop.hbase.coprocessor.RegionCoprocessor, org.apache.hadoop.hbase.coprocessor.RegionObserver)</li>
 <li class="circle">org.apache.hadoop.hbase.client.<a href="org/apache/hadoop/hbase/client/TestAsyncTableScanMetrics.html" class="type-name-link" title="class in org.apache.hadoop.hbase.client">TestAsyncTableScanMetrics</a></li>
+<li class="circle">org.apache.hadoop.hbase.client.<a href="org/apache/hadoop/hbase/client/TestAsyncTableScanMetricsWithScannerSuspending.html" class="type-name-link" title="class in org.apache.hadoop.hbase.client">TestAsyncTableScanMetricsWithScannerSuspending</a></li>
 <li class="circle">org.apache.hadoop.hbase.client.<a href="org/apache/hadoop/hbase/client/TestAsyncTableScannerCloseWhileSuspending.html" class="type-name-link" title="class in org.apache.hadoop.hbase.client">TestAsyncTableScannerCloseWhileSuspending</a></li>
 <li class="circle">org.apache.hadoop.hbase.client.<a href="org/apache/hadoop/hbase/client/TestAsyncTableScanRenewLease.html" class="type-name-link" title="class in org.apache.hadoop.hbase.client">TestAsyncTableScanRenewLease</a></li>
 <li class="circle">org.apache.hadoop.hbase.client.<a href="org/apache/hadoop/hbase/client/TestAsyncTableScanRenewLease.RenewLeaseConsumer.html" class="type-name-link" title="class in org.apache.hadoop.hbase.client">TestAsyncTableScanRenewLease.RenewLeaseConsumer</a> (implements org.apache.hadoop.hbase.client.AdvancedScanResultConsumer)</li>
@@ -3508,6 +3515,8 @@ loadScripts(document, 'script');</script>
 </li>
 <li class="circle">org.apache.hadoop.hbase.snapshot.<a href="org/apache/hadoop/hbase/snapshot/TestExportSnapshotAdjunct.html" class="type-name-link" title="class in org.apache.hadoop.hbase.snapshot">TestExportSnapshotAdjunct</a></li>
 <li class="circle">org.apache.hadoop.hbase.snapshot.<a href="org/apache/hadoop/hbase/snapshot/TestExportSnapshotHelpers.html" class="type-name-link" title="class in org.apache.hadoop.hbase.snapshot">TestExportSnapshotHelpers</a></li>
+<li class="circle">org.apache.hadoop.hbase.snapshot.<a href="org/apache/hadoop/hbase/snapshot/TestExportSnapshotHelpers.TestCustomFileGrouper.html" class="type-name-link" title="class in org.apache.hadoop.hbase.snapshot">TestExportSnapshotHelpers.TestCustomFileGrouper</a> (implements org.apache.hadoop.hbase.snapshot.ExportSnapshot.CustomFileGrouper)</li>
+<li class="circle">org.apache.hadoop.hbase.snapshot.<a href="org/apache/hadoop/hbase/snapshot/TestExportSnapshotHelpers.TestFileLocationResolver.html" class="type-name-link" title="class in org.apache.hadoop.hbase.snapshot">TestExportSnapshotHelpers.TestFileLocationResolver</a> (implements org.apache.hadoop.hbase.snapshot.ExportSnapshot.FileLocationResolver)</li>
 <li class="circle">org.apache.hadoop.hbase.snapshot.<a href="org/apache/hadoop/hbase/snapshot/TestExportSnapshotV1NoCluster.html" class="type-name-link" title="class in org.apache.hadoop.hbase.snapshot">TestExportSnapshotV1NoCluster</a></li>
 <li class="circle">org.apache.hadoop.hbase.snapshot.<a href="org/apache/hadoop/hbase/snapshot/TestExportSnapshotV2NoCluster.html" class="type-name-link" title="class in org.apache.hadoop.hbase.snapshot">TestExportSnapshotV2NoCluster</a></li>
 <li class="circle">org.apache.hadoop.hbase.security.visibility.<a href="org/apache/hadoop/hbase/security/visibility/TestExpressionExpander.html" class="type-name-link" title="class in org.apache.hadoop.hbase.security.visibility">TestExpressionExpander</a></li>
@@ -3960,7 +3969,6 @@ loadScripts(document, 'script');</script>
 <li class="circle">org.apache.hadoop.hbase.master.janitor.<a href="org/apache/hadoop/hbase/master/janitor/TestMetaFixerNoCluster.html" class="type-name-link" title="class in org.apache.hadoop.hbase.master.janitor">TestMetaFixerNoCluster</a></li>
 <li class="circle">org.apache.hadoop.hbase.client.<a href="org/apache/hadoop/hbase/client/TestMetaRegionLocationCache.html" class="type-name-link" title="class in org.apache.hadoop.hbase.client">TestMetaRegionLocationCache</a></li>
 <li class="circle">org.apache.hadoop.hbase.replication.regionserver.<a href="org/apache/hadoop/hbase/replication/regionserver/TestMetaRegionReplicaReplication.html" class="type-name-link" title="class in org.apache.hadoop.hbase.replication.regionserver">TestMetaRegionReplicaReplication</a></li>
-<li class="circle">org.apache.hadoop.hbase.client.<a href="org/apache/hadoop/hbase/client/TestMetaReplicaAssignment.html" class="type-name-link" title="class in org.apache.hadoop.hbase.client">TestMetaReplicaAssignment</a></li>
 <li class="circle">org.apache.hadoop.hbase.master.<a href="org/apache/hadoop/hbase/master/TestMetaShutdownHandler.html" class="type-name-link" title="class in org.apache.hadoop.hbase.master">TestMetaShutdownHandler</a></li>
 <li class="circle">org.apache.hadoop.hbase.<a href="org/apache/hadoop/hbase/TestMetaTableAccessor.html" class="type-name-link" title="class in org.apache.hadoop.hbase">TestMetaTableAccessor</a></li>
 <li class="circle">org.apache.hadoop.hbase.client.<a href="org/apache/hadoop/hbase/client/TestMetaTableAccessorNoCluster.html" class="type-name-link" title="class in org.apache.hadoop.hbase.client">TestMetaTableAccessorNoCluster</a></li>
@@ -4427,6 +4435,7 @@ loadScripts(document, 'script');</script>
 <li class="circle">org.apache.hadoop.hbase.master.http.<a href="org/apache/hadoop/hbase/master/http/TestRegionVisualizer.html" class="type-name-link" title="class in org.apache.hadoop.hbase.master.http">TestRegionVisualizer</a></li>
 <li class="circle">org.apache.hadoop.hbase.regionserver.storefiletracker.<a href="org/apache/hadoop/hbase/regionserver/storefiletracker/TestRegionWithFileBasedStoreFileTracker.html" class="type-name-link" title="class in org.apache.hadoop.hbase.regionserver.storefiletracker">TestRegionWithFileBasedStoreFileTracker</a></li>
 <li class="circle">org.apache.hadoop.hbase.client.<a href="org/apache/hadoop/hbase/client/TestRegistryEndpointsRefresher.html" class="type-name-link" title="class in org.apache.hadoop.hbase.client">TestRegistryEndpointsRefresher</a></li>
+<li class="circle">org.apache.hadoop.hbase.master.procedure.<a href="org/apache/hadoop/hbase/master/procedure/TestReloadQuotasProcedure.html" class="type-name-link" title="class in org.apache.hadoop.hbase.master.procedure">TestReloadQuotasProcedure</a></li>
 <li class="circle">org.apache.hadoop.hbase.rest.client.<a href="org/apache/hadoop/hbase/rest/client/TestRemoteAdminRetries.html" class="type-name-link" title="class in org.apache.hadoop.hbase.rest.client">TestRemoteAdminRetries</a></li>
 <li class="circle">org.apache.hadoop.hbase.rest.client.<a href="org/apache/hadoop/hbase/rest/client/TestRemoteHTableRetries.html" class="type-name-link" title="class in org.apache.hadoop.hbase.rest.client">TestRemoteHTableRetries</a></li>
 <li class="circle">org.apache.hadoop.hbase.procedure2.<a href="org/apache/hadoop/hbase/procedure2/TestRemoteProcedureDispatcherUncaughtExceptionHandler.html" class="type-name-link" title="class in org.apache.hadoop.hbase.procedure2">TestRemoteProcedureDispatcherUncaughtExceptionHandler</a></li>
@@ -4667,6 +4676,7 @@ loadScripts(document, 'script');</script>
 <li class="circle">org.apache.hadoop.hbase.security.provider.<a href="org/apache/hadoop/hbase/security/provider/TestSaslServerAuthenticationProviders.InitCheckingSaslServerAuthenticationProvider.html" class="type-name-link" title="class in org.apache.hadoop.hbase.security.provider">TestSaslServerAuthenticationProviders.InitCheckingSaslServerAuthenticationProvider</a> (implements org.apache.hadoop.hbase.security.provider.SaslServerAuthenticationProvider)</li>
 <li class="circle">org.apache.hadoop.hbase.security.<a href="org/apache/hadoop/hbase/security/TestSaslUtil.html" class="type-name-link" title="class in org.apache.hadoop.hbase.security">TestSaslUtil</a></li>
 <li class="circle">org.apache.hadoop.hbase.client.<a href="org/apache/hadoop/hbase/client/TestScan.html" class="type-name-link" title="class in org.apache.hadoop.hbase.client">TestScan</a></li>
+<li class="circle">org.apache.hadoop.hbase.client.<a href="org/apache/hadoop/hbase/client/TestScanAttributes.html" class="type-name-link" title="class in org.apache.hadoop.hbase.client">TestScanAttributes</a></li>
 <li class="circle">org.apache.hadoop.hbase.regionserver.querymatcher.<a href="org/apache/hadoop/hbase/regionserver/querymatcher/TestScanDeleteTracker.html" class="type-name-link" title="class in org.apache.hadoop.hbase.regionserver.querymatcher">TestScanDeleteTracker</a></li>
 <li class="circle">org.apache.hadoop.hbase.coprocessor.example.<a href="org/apache/hadoop/hbase/coprocessor/example/TestScanModifyingObserver.html" class="type-name-link" title="class in org.apache.hadoop.hbase.coprocessor.example">TestScanModifyingObserver</a></li>
 <li class="circle">org.apache.hadoop.hbase.regionserver.<a href="org/apache/hadoop/hbase/regionserver/TestScanner.html" class="type-name-link" title="class in org.apache.hadoop.hbase.regionserver">TestScanner</a></li>
