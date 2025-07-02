@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2007 - 2025 The Apache Software Foundation</copyright>
     <item>
-      <title>File: 5116,
-             Errors: 1714,
+      <title>File: 5121,
+             Errors: 1713,
              Warnings: 0,
              Infos: 0
       </title>
@@ -12997,6 +12997,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.exceptions.ScannerResetException.java">org/apache/hadoop/hbase/exceptions/ScannerResetException.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.mapreduce.MRIncrementalLoadTestBase.java">org/apache/hadoop/hbase/mapreduce/MRIncrementalLoadTestBase.java</a>
                 </td>
                 <td>
                   0
@@ -27724,6 +27738,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.mapreduce.HFileOutputFormat2TestBase.java">org/apache/hadoop/hbase/mapreduce/HFileOutputFormat2TestBase.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  5
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.wal.TestWALOpenAfterDNRollingStart.java">org/apache/hadoop/hbase/wal/TestWALOpenAfterDNRollingStart.java</a>
                 </td>
                 <td>
@@ -29811,6 +29839,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.replication.ReplicationFactory.java">org/apache/hadoop/hbase/replication/ReplicationFactory.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.mapreduce.TestMRIncrementalLoadWithLocality.java">org/apache/hadoop/hbase/mapreduce/TestMRIncrementalLoadWithLocality.java</a>
                 </td>
                 <td>
                   0
@@ -40282,6 +40324,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.mapreduce.TestMRIncrementalLoad.java">org/apache/hadoop/hbase/mapreduce/TestMRIncrementalLoad.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.backup.impl.IncrementalBackupManager.java">org/apache/hadoop/hbase/backup/impl/IncrementalBackupManager.java</a>
                 </td>
                 <td>
@@ -50287,7 +50343,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  14
+                  8
                 </td>
               </tr>
                           <tr>
@@ -57867,6 +57923,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.security.provider.GssSaslAuthenticationProvider.java">org/apache/hadoop/hbase/security/provider/GssSaslAuthenticationProvider.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://hbase.apache.org/checkstyle.html#org.apache.hadoop.hbase.mapreduce.TestConfigurePartitioner.java">org/apache/hadoop/hbase/mapreduce/TestConfigurePartitioner.java</a>
                 </td>
                 <td>
                   0
