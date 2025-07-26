@@ -993,166 +993,169 @@
 <span class="source-line-no">980</span><span id="line-980">     * @return the midpoint of the 2 numbers</span>
 <span class="source-line-no">981</span><span id="line-981">     */</span>
 <span class="source-line-no">982</span><span id="line-982">    public BigInteger split2(BigInteger a, BigInteger b) {</span>
-<span class="source-line-no">983</span><span id="line-983">      return a.add(b).divide(BigInteger.valueOf(2)).abs();</span>
-<span class="source-line-no">984</span><span id="line-984">    }</span>
-<span class="source-line-no">985</span><span id="line-985"></span>
-<span class="source-line-no">986</span><span id="line-986">    /**</span>
-<span class="source-line-no">987</span><span id="line-987">     * Returns an array of bytes corresponding to an array of BigIntegers</span>
-<span class="source-line-no">988</span><span id="line-988">     * @param bigIntegers numbers to convert</span>
-<span class="source-line-no">989</span><span id="line-989">     * @return bytes corresponding to the bigIntegers</span>
-<span class="source-line-no">990</span><span id="line-990">     */</span>
-<span class="source-line-no">991</span><span id="line-991">    public byte[][] convertToBytes(BigInteger[] bigIntegers) {</span>
-<span class="source-line-no">992</span><span id="line-992">      byte[][] returnBytes = new byte[bigIntegers.length][];</span>
-<span class="source-line-no">993</span><span id="line-993">      for (int i = 0; i &lt; bigIntegers.length; i++) {</span>
-<span class="source-line-no">994</span><span id="line-994">        returnBytes[i] = convertToByte(bigIntegers[i]);</span>
-<span class="source-line-no">995</span><span id="line-995">      }</span>
-<span class="source-line-no">996</span><span id="line-996">      return returnBytes;</span>
-<span class="source-line-no">997</span><span id="line-997">    }</span>
-<span class="source-line-no">998</span><span id="line-998"></span>
-<span class="source-line-no">999</span><span id="line-999">    /**</span>
-<span class="source-line-no">1000</span><span id="line-1000">     * Returns the bytes corresponding to the BigInteger</span>
-<span class="source-line-no">1001</span><span id="line-1001">     * @param bigInteger number to convert</span>
-<span class="source-line-no">1002</span><span id="line-1002">     * @param pad        padding length</span>
-<span class="source-line-no">1003</span><span id="line-1003">     * @return byte corresponding to input BigInteger</span>
-<span class="source-line-no">1004</span><span id="line-1004">     */</span>
-<span class="source-line-no">1005</span><span id="line-1005">    public byte[] convertToByte(BigInteger bigInteger, int pad) {</span>
-<span class="source-line-no">1006</span><span id="line-1006">      String bigIntegerString = bigInteger.toString(radix);</span>
-<span class="source-line-no">1007</span><span id="line-1007">      bigIntegerString = StringUtils.leftPad(bigIntegerString, pad, '0');</span>
-<span class="source-line-no">1008</span><span id="line-1008">      return Bytes.toBytes(bigIntegerString);</span>
-<span class="source-line-no">1009</span><span id="line-1009">    }</span>
-<span class="source-line-no">1010</span><span id="line-1010"></span>
-<span class="source-line-no">1011</span><span id="line-1011">    /**</span>
-<span class="source-line-no">1012</span><span id="line-1012">     * Returns the bytes corresponding to the BigInteger</span>
-<span class="source-line-no">1013</span><span id="line-1013">     * @param bigInteger number to convert</span>
-<span class="source-line-no">1014</span><span id="line-1014">     * @return corresponding bytes</span>
-<span class="source-line-no">1015</span><span id="line-1015">     */</span>
-<span class="source-line-no">1016</span><span id="line-1016">    public byte[] convertToByte(BigInteger bigInteger) {</span>
-<span class="source-line-no">1017</span><span id="line-1017">      return convertToByte(bigInteger, rowComparisonLength);</span>
-<span class="source-line-no">1018</span><span id="line-1018">    }</span>
-<span class="source-line-no">1019</span><span id="line-1019"></span>
-<span class="source-line-no">1020</span><span id="line-1020">    /**</span>
-<span class="source-line-no">1021</span><span id="line-1021">     * Returns the BigInteger represented by the byte array</span>
-<span class="source-line-no">1022</span><span id="line-1022">     * @param row byte array representing row</span>
-<span class="source-line-no">1023</span><span id="line-1023">     * @return the corresponding BigInteger</span>
-<span class="source-line-no">1024</span><span id="line-1024">     */</span>
-<span class="source-line-no">1025</span><span id="line-1025">    public BigInteger convertToBigInteger(byte[] row) {</span>
-<span class="source-line-no">1026</span><span id="line-1026">      return (row.length &gt; 0) ? new BigInteger(Bytes.toString(row), radix) : BigInteger.ZERO;</span>
-<span class="source-line-no">1027</span><span id="line-1027">    }</span>
-<span class="source-line-no">1028</span><span id="line-1028"></span>
-<span class="source-line-no">1029</span><span id="line-1029">    @Override</span>
-<span class="source-line-no">1030</span><span id="line-1030">    public String toString() {</span>
-<span class="source-line-no">1031</span><span id="line-1031">      return this.getClass().getSimpleName() + " [" + rowToStr(firstRow()) + ","</span>
-<span class="source-line-no">1032</span><span id="line-1032">        + rowToStr(lastRow()) + "]";</span>
-<span class="source-line-no">1033</span><span id="line-1033">    }</span>
-<span class="source-line-no">1034</span><span id="line-1034">  }</span>
-<span class="source-line-no">1035</span><span id="line-1035"></span>
-<span class="source-line-no">1036</span><span id="line-1036">  /**</span>
-<span class="source-line-no">1037</span><span id="line-1037">   * A SplitAlgorithm that divides the space of possible keys evenly. Useful when the keys are</span>
-<span class="source-line-no">1038</span><span id="line-1038">   * approximately uniform random bytes (e.g. hashes). Rows are raw byte values in the range &lt;b&gt;00</span>
-<span class="source-line-no">1039</span><span id="line-1039">   * =&amp;gt; FF&lt;/b&gt; and are right-padded with zeros to keep the same memcmp() order. This is the</span>
-<span class="source-line-no">1040</span><span id="line-1040">   * natural algorithm to use for a byte[] environment and saves space, but is not necessarily the</span>
-<span class="source-line-no">1041</span><span id="line-1041">   * easiest for readability.</span>
-<span class="source-line-no">1042</span><span id="line-1042">   */</span>
-<span class="source-line-no">1043</span><span id="line-1043">  public static class UniformSplit implements SplitAlgorithm {</span>
-<span class="source-line-no">1044</span><span id="line-1044">    static final byte xFF = (byte) 0xFF;</span>
-<span class="source-line-no">1045</span><span id="line-1045">    byte[] firstRowBytes = ArrayUtils.EMPTY_BYTE_ARRAY;</span>
-<span class="source-line-no">1046</span><span id="line-1046">    byte[] lastRowBytes = new byte[] { xFF, xFF, xFF, xFF, xFF, xFF, xFF, xFF };</span>
-<span class="source-line-no">1047</span><span id="line-1047"></span>
-<span class="source-line-no">1048</span><span id="line-1048">    @Override</span>
-<span class="source-line-no">1049</span><span id="line-1049">    public byte[] split(byte[] start, byte[] end) {</span>
-<span class="source-line-no">1050</span><span id="line-1050">      return Bytes.split(start, end, 1)[1];</span>
-<span class="source-line-no">1051</span><span id="line-1051">    }</span>
-<span class="source-line-no">1052</span><span id="line-1052"></span>
-<span class="source-line-no">1053</span><span id="line-1053">    @Override</span>
-<span class="source-line-no">1054</span><span id="line-1054">    public byte[][] split(int numRegions) {</span>
-<span class="source-line-no">1055</span><span id="line-1055">      Preconditions.checkArgument(Bytes.compareTo(lastRowBytes, firstRowBytes) &gt; 0,</span>
-<span class="source-line-no">1056</span><span id="line-1056">        "last row (%s) is configured less than first row (%s)", Bytes.toStringBinary(lastRowBytes),</span>
-<span class="source-line-no">1057</span><span id="line-1057">        Bytes.toStringBinary(firstRowBytes));</span>
-<span class="source-line-no">1058</span><span id="line-1058"></span>
-<span class="source-line-no">1059</span><span id="line-1059">      byte[][] splits = Bytes.split(firstRowBytes, lastRowBytes, true, numRegions - 1);</span>
-<span class="source-line-no">1060</span><span id="line-1060">      Preconditions.checkState(splits != null,</span>
-<span class="source-line-no">1061</span><span id="line-1061">        "Could not split region with given user input: " + this);</span>
-<span class="source-line-no">1062</span><span id="line-1062"></span>
-<span class="source-line-no">1063</span><span id="line-1063">      // remove endpoints, which are included in the splits list</span>
-<span class="source-line-no">1064</span><span id="line-1064"></span>
-<span class="source-line-no">1065</span><span id="line-1065">      return splits == null ? null : Arrays.copyOfRange(splits, 1, splits.length - 1);</span>
-<span class="source-line-no">1066</span><span id="line-1066">    }</span>
+<span class="source-line-no">983</span><span id="line-983">      if (b.equals(lastRowInt)) {</span>
+<span class="source-line-no">984</span><span id="line-984">        b = b.add(BigInteger.ONE);</span>
+<span class="source-line-no">985</span><span id="line-985">      }</span>
+<span class="source-line-no">986</span><span id="line-986">      return a.add(b).divide(BigInteger.valueOf(2)).abs();</span>
+<span class="source-line-no">987</span><span id="line-987">    }</span>
+<span class="source-line-no">988</span><span id="line-988"></span>
+<span class="source-line-no">989</span><span id="line-989">    /**</span>
+<span class="source-line-no">990</span><span id="line-990">     * Returns an array of bytes corresponding to an array of BigIntegers</span>
+<span class="source-line-no">991</span><span id="line-991">     * @param bigIntegers numbers to convert</span>
+<span class="source-line-no">992</span><span id="line-992">     * @return bytes corresponding to the bigIntegers</span>
+<span class="source-line-no">993</span><span id="line-993">     */</span>
+<span class="source-line-no">994</span><span id="line-994">    public byte[][] convertToBytes(BigInteger[] bigIntegers) {</span>
+<span class="source-line-no">995</span><span id="line-995">      byte[][] returnBytes = new byte[bigIntegers.length][];</span>
+<span class="source-line-no">996</span><span id="line-996">      for (int i = 0; i &lt; bigIntegers.length; i++) {</span>
+<span class="source-line-no">997</span><span id="line-997">        returnBytes[i] = convertToByte(bigIntegers[i]);</span>
+<span class="source-line-no">998</span><span id="line-998">      }</span>
+<span class="source-line-no">999</span><span id="line-999">      return returnBytes;</span>
+<span class="source-line-no">1000</span><span id="line-1000">    }</span>
+<span class="source-line-no">1001</span><span id="line-1001"></span>
+<span class="source-line-no">1002</span><span id="line-1002">    /**</span>
+<span class="source-line-no">1003</span><span id="line-1003">     * Returns the bytes corresponding to the BigInteger</span>
+<span class="source-line-no">1004</span><span id="line-1004">     * @param bigInteger number to convert</span>
+<span class="source-line-no">1005</span><span id="line-1005">     * @param pad        padding length</span>
+<span class="source-line-no">1006</span><span id="line-1006">     * @return byte corresponding to input BigInteger</span>
+<span class="source-line-no">1007</span><span id="line-1007">     */</span>
+<span class="source-line-no">1008</span><span id="line-1008">    public byte[] convertToByte(BigInteger bigInteger, int pad) {</span>
+<span class="source-line-no">1009</span><span id="line-1009">      String bigIntegerString = bigInteger.toString(radix);</span>
+<span class="source-line-no">1010</span><span id="line-1010">      bigIntegerString = StringUtils.leftPad(bigIntegerString, pad, '0');</span>
+<span class="source-line-no">1011</span><span id="line-1011">      return Bytes.toBytes(bigIntegerString);</span>
+<span class="source-line-no">1012</span><span id="line-1012">    }</span>
+<span class="source-line-no">1013</span><span id="line-1013"></span>
+<span class="source-line-no">1014</span><span id="line-1014">    /**</span>
+<span class="source-line-no">1015</span><span id="line-1015">     * Returns the bytes corresponding to the BigInteger</span>
+<span class="source-line-no">1016</span><span id="line-1016">     * @param bigInteger number to convert</span>
+<span class="source-line-no">1017</span><span id="line-1017">     * @return corresponding bytes</span>
+<span class="source-line-no">1018</span><span id="line-1018">     */</span>
+<span class="source-line-no">1019</span><span id="line-1019">    public byte[] convertToByte(BigInteger bigInteger) {</span>
+<span class="source-line-no">1020</span><span id="line-1020">      return convertToByte(bigInteger, rowComparisonLength);</span>
+<span class="source-line-no">1021</span><span id="line-1021">    }</span>
+<span class="source-line-no">1022</span><span id="line-1022"></span>
+<span class="source-line-no">1023</span><span id="line-1023">    /**</span>
+<span class="source-line-no">1024</span><span id="line-1024">     * Returns the BigInteger represented by the byte array</span>
+<span class="source-line-no">1025</span><span id="line-1025">     * @param row byte array representing row</span>
+<span class="source-line-no">1026</span><span id="line-1026">     * @return the corresponding BigInteger</span>
+<span class="source-line-no">1027</span><span id="line-1027">     */</span>
+<span class="source-line-no">1028</span><span id="line-1028">    public BigInteger convertToBigInteger(byte[] row) {</span>
+<span class="source-line-no">1029</span><span id="line-1029">      return (row.length &gt; 0) ? new BigInteger(Bytes.toString(row), radix) : BigInteger.ZERO;</span>
+<span class="source-line-no">1030</span><span id="line-1030">    }</span>
+<span class="source-line-no">1031</span><span id="line-1031"></span>
+<span class="source-line-no">1032</span><span id="line-1032">    @Override</span>
+<span class="source-line-no">1033</span><span id="line-1033">    public String toString() {</span>
+<span class="source-line-no">1034</span><span id="line-1034">      return this.getClass().getSimpleName() + " [" + rowToStr(firstRow()) + ","</span>
+<span class="source-line-no">1035</span><span id="line-1035">        + rowToStr(lastRow()) + "]";</span>
+<span class="source-line-no">1036</span><span id="line-1036">    }</span>
+<span class="source-line-no">1037</span><span id="line-1037">  }</span>
+<span class="source-line-no">1038</span><span id="line-1038"></span>
+<span class="source-line-no">1039</span><span id="line-1039">  /**</span>
+<span class="source-line-no">1040</span><span id="line-1040">   * A SplitAlgorithm that divides the space of possible keys evenly. Useful when the keys are</span>
+<span class="source-line-no">1041</span><span id="line-1041">   * approximately uniform random bytes (e.g. hashes). Rows are raw byte values in the range &lt;b&gt;00</span>
+<span class="source-line-no">1042</span><span id="line-1042">   * =&amp;gt; FF&lt;/b&gt; and are right-padded with zeros to keep the same memcmp() order. This is the</span>
+<span class="source-line-no">1043</span><span id="line-1043">   * natural algorithm to use for a byte[] environment and saves space, but is not necessarily the</span>
+<span class="source-line-no">1044</span><span id="line-1044">   * easiest for readability.</span>
+<span class="source-line-no">1045</span><span id="line-1045">   */</span>
+<span class="source-line-no">1046</span><span id="line-1046">  public static class UniformSplit implements SplitAlgorithm {</span>
+<span class="source-line-no">1047</span><span id="line-1047">    static final byte xFF = (byte) 0xFF;</span>
+<span class="source-line-no">1048</span><span id="line-1048">    byte[] firstRowBytes = ArrayUtils.EMPTY_BYTE_ARRAY;</span>
+<span class="source-line-no">1049</span><span id="line-1049">    byte[] lastRowBytes = new byte[] { xFF, xFF, xFF, xFF, xFF, xFF, xFF, xFF };</span>
+<span class="source-line-no">1050</span><span id="line-1050"></span>
+<span class="source-line-no">1051</span><span id="line-1051">    @Override</span>
+<span class="source-line-no">1052</span><span id="line-1052">    public byte[] split(byte[] start, byte[] end) {</span>
+<span class="source-line-no">1053</span><span id="line-1053">      return Bytes.split(start, end, 1)[1];</span>
+<span class="source-line-no">1054</span><span id="line-1054">    }</span>
+<span class="source-line-no">1055</span><span id="line-1055"></span>
+<span class="source-line-no">1056</span><span id="line-1056">    @Override</span>
+<span class="source-line-no">1057</span><span id="line-1057">    public byte[][] split(int numRegions) {</span>
+<span class="source-line-no">1058</span><span id="line-1058">      Preconditions.checkArgument(Bytes.compareTo(lastRowBytes, firstRowBytes) &gt; 0,</span>
+<span class="source-line-no">1059</span><span id="line-1059">        "last row (%s) is configured less than first row (%s)", Bytes.toStringBinary(lastRowBytes),</span>
+<span class="source-line-no">1060</span><span id="line-1060">        Bytes.toStringBinary(firstRowBytes));</span>
+<span class="source-line-no">1061</span><span id="line-1061"></span>
+<span class="source-line-no">1062</span><span id="line-1062">      byte[][] splits = Bytes.split(firstRowBytes, lastRowBytes, true, numRegions - 1);</span>
+<span class="source-line-no">1063</span><span id="line-1063">      Preconditions.checkState(splits != null,</span>
+<span class="source-line-no">1064</span><span id="line-1064">        "Could not split region with given user input: " + this);</span>
+<span class="source-line-no">1065</span><span id="line-1065"></span>
+<span class="source-line-no">1066</span><span id="line-1066">      // remove endpoints, which are included in the splits list</span>
 <span class="source-line-no">1067</span><span id="line-1067"></span>
-<span class="source-line-no">1068</span><span id="line-1068">    @Override</span>
-<span class="source-line-no">1069</span><span id="line-1069">    public byte[][] split(byte[] start, byte[] end, int numSplits, boolean inclusive) {</span>
-<span class="source-line-no">1070</span><span id="line-1070">      if (Arrays.equals(start, HConstants.EMPTY_BYTE_ARRAY)) {</span>
-<span class="source-line-no">1071</span><span id="line-1071">        start = firstRowBytes;</span>
-<span class="source-line-no">1072</span><span id="line-1072">      }</span>
-<span class="source-line-no">1073</span><span id="line-1073">      if (Arrays.equals(end, HConstants.EMPTY_BYTE_ARRAY)) {</span>
-<span class="source-line-no">1074</span><span id="line-1074">        end = lastRowBytes;</span>
+<span class="source-line-no">1068</span><span id="line-1068">      return splits == null ? null : Arrays.copyOfRange(splits, 1, splits.length - 1);</span>
+<span class="source-line-no">1069</span><span id="line-1069">    }</span>
+<span class="source-line-no">1070</span><span id="line-1070"></span>
+<span class="source-line-no">1071</span><span id="line-1071">    @Override</span>
+<span class="source-line-no">1072</span><span id="line-1072">    public byte[][] split(byte[] start, byte[] end, int numSplits, boolean inclusive) {</span>
+<span class="source-line-no">1073</span><span id="line-1073">      if (Arrays.equals(start, HConstants.EMPTY_BYTE_ARRAY)) {</span>
+<span class="source-line-no">1074</span><span id="line-1074">        start = firstRowBytes;</span>
 <span class="source-line-no">1075</span><span id="line-1075">      }</span>
-<span class="source-line-no">1076</span><span id="line-1076">      Preconditions.checkArgument(Bytes.compareTo(end, start) &gt; 0,</span>
-<span class="source-line-no">1077</span><span id="line-1077">        "last row (%s) is configured less than first row (%s)", Bytes.toStringBinary(end),</span>
-<span class="source-line-no">1078</span><span id="line-1078">        Bytes.toStringBinary(start));</span>
-<span class="source-line-no">1079</span><span id="line-1079"></span>
-<span class="source-line-no">1080</span><span id="line-1080">      byte[][] splits = Bytes.split(start, end, true, numSplits - 1);</span>
-<span class="source-line-no">1081</span><span id="line-1081">      Preconditions.checkState(splits != null,</span>
-<span class="source-line-no">1082</span><span id="line-1082">        "Could not calculate input splits with given user input: " + this);</span>
-<span class="source-line-no">1083</span><span id="line-1083">      if (inclusive) {</span>
-<span class="source-line-no">1084</span><span id="line-1084">        return splits;</span>
-<span class="source-line-no">1085</span><span id="line-1085">      } else {</span>
-<span class="source-line-no">1086</span><span id="line-1086">        // remove endpoints, which are included in the splits list</span>
-<span class="source-line-no">1087</span><span id="line-1087">        return Arrays.copyOfRange(splits, 1, splits.length - 1);</span>
-<span class="source-line-no">1088</span><span id="line-1088">      }</span>
-<span class="source-line-no">1089</span><span id="line-1089">    }</span>
-<span class="source-line-no">1090</span><span id="line-1090"></span>
-<span class="source-line-no">1091</span><span id="line-1091">    @Override</span>
-<span class="source-line-no">1092</span><span id="line-1092">    public byte[] firstRow() {</span>
-<span class="source-line-no">1093</span><span id="line-1093">      return firstRowBytes;</span>
-<span class="source-line-no">1094</span><span id="line-1094">    }</span>
-<span class="source-line-no">1095</span><span id="line-1095"></span>
-<span class="source-line-no">1096</span><span id="line-1096">    @Override</span>
-<span class="source-line-no">1097</span><span id="line-1097">    public byte[] lastRow() {</span>
-<span class="source-line-no">1098</span><span id="line-1098">      return lastRowBytes;</span>
-<span class="source-line-no">1099</span><span id="line-1099">    }</span>
-<span class="source-line-no">1100</span><span id="line-1100"></span>
-<span class="source-line-no">1101</span><span id="line-1101">    @Override</span>
-<span class="source-line-no">1102</span><span id="line-1102">    public void setFirstRow(String userInput) {</span>
-<span class="source-line-no">1103</span><span id="line-1103">      firstRowBytes = Bytes.toBytesBinary(userInput);</span>
-<span class="source-line-no">1104</span><span id="line-1104">    }</span>
-<span class="source-line-no">1105</span><span id="line-1105"></span>
-<span class="source-line-no">1106</span><span id="line-1106">    @Override</span>
-<span class="source-line-no">1107</span><span id="line-1107">    public void setLastRow(String userInput) {</span>
-<span class="source-line-no">1108</span><span id="line-1108">      lastRowBytes = Bytes.toBytesBinary(userInput);</span>
-<span class="source-line-no">1109</span><span id="line-1109">    }</span>
-<span class="source-line-no">1110</span><span id="line-1110"></span>
-<span class="source-line-no">1111</span><span id="line-1111">    @Override</span>
-<span class="source-line-no">1112</span><span id="line-1112">    public void setFirstRow(byte[] userInput) {</span>
-<span class="source-line-no">1113</span><span id="line-1113">      firstRowBytes = userInput;</span>
-<span class="source-line-no">1114</span><span id="line-1114">    }</span>
-<span class="source-line-no">1115</span><span id="line-1115"></span>
-<span class="source-line-no">1116</span><span id="line-1116">    @Override</span>
-<span class="source-line-no">1117</span><span id="line-1117">    public void setLastRow(byte[] userInput) {</span>
-<span class="source-line-no">1118</span><span id="line-1118">      lastRowBytes = userInput;</span>
-<span class="source-line-no">1119</span><span id="line-1119">    }</span>
-<span class="source-line-no">1120</span><span id="line-1120"></span>
-<span class="source-line-no">1121</span><span id="line-1121">    @Override</span>
-<span class="source-line-no">1122</span><span id="line-1122">    public byte[] strToRow(String input) {</span>
-<span class="source-line-no">1123</span><span id="line-1123">      return Bytes.toBytesBinary(input);</span>
-<span class="source-line-no">1124</span><span id="line-1124">    }</span>
-<span class="source-line-no">1125</span><span id="line-1125"></span>
-<span class="source-line-no">1126</span><span id="line-1126">    @Override</span>
-<span class="source-line-no">1127</span><span id="line-1127">    public String rowToStr(byte[] row) {</span>
-<span class="source-line-no">1128</span><span id="line-1128">      return Bytes.toStringBinary(row);</span>
-<span class="source-line-no">1129</span><span id="line-1129">    }</span>
-<span class="source-line-no">1130</span><span id="line-1130"></span>
-<span class="source-line-no">1131</span><span id="line-1131">    @Override</span>
-<span class="source-line-no">1132</span><span id="line-1132">    public String separator() {</span>
-<span class="source-line-no">1133</span><span id="line-1133">      return ",";</span>
-<span class="source-line-no">1134</span><span id="line-1134">    }</span>
-<span class="source-line-no">1135</span><span id="line-1135"></span>
-<span class="source-line-no">1136</span><span id="line-1136">    @Override</span>
-<span class="source-line-no">1137</span><span id="line-1137">    public String toString() {</span>
-<span class="source-line-no">1138</span><span id="line-1138">      return this.getClass().getSimpleName() + " [" + rowToStr(firstRow()) + ","</span>
-<span class="source-line-no">1139</span><span id="line-1139">        + rowToStr(lastRow()) + "]";</span>
-<span class="source-line-no">1140</span><span id="line-1140">    }</span>
-<span class="source-line-no">1141</span><span id="line-1141">  }</span>
-<span class="source-line-no">1142</span><span id="line-1142">}</span>
+<span class="source-line-no">1076</span><span id="line-1076">      if (Arrays.equals(end, HConstants.EMPTY_BYTE_ARRAY)) {</span>
+<span class="source-line-no">1077</span><span id="line-1077">        end = lastRowBytes;</span>
+<span class="source-line-no">1078</span><span id="line-1078">      }</span>
+<span class="source-line-no">1079</span><span id="line-1079">      Preconditions.checkArgument(Bytes.compareTo(end, start) &gt; 0,</span>
+<span class="source-line-no">1080</span><span id="line-1080">        "last row (%s) is configured less than first row (%s)", Bytes.toStringBinary(end),</span>
+<span class="source-line-no">1081</span><span id="line-1081">        Bytes.toStringBinary(start));</span>
+<span class="source-line-no">1082</span><span id="line-1082"></span>
+<span class="source-line-no">1083</span><span id="line-1083">      byte[][] splits = Bytes.split(start, end, true, numSplits - 1);</span>
+<span class="source-line-no">1084</span><span id="line-1084">      Preconditions.checkState(splits != null,</span>
+<span class="source-line-no">1085</span><span id="line-1085">        "Could not calculate input splits with given user input: " + this);</span>
+<span class="source-line-no">1086</span><span id="line-1086">      if (inclusive) {</span>
+<span class="source-line-no">1087</span><span id="line-1087">        return splits;</span>
+<span class="source-line-no">1088</span><span id="line-1088">      } else {</span>
+<span class="source-line-no">1089</span><span id="line-1089">        // remove endpoints, which are included in the splits list</span>
+<span class="source-line-no">1090</span><span id="line-1090">        return Arrays.copyOfRange(splits, 1, splits.length - 1);</span>
+<span class="source-line-no">1091</span><span id="line-1091">      }</span>
+<span class="source-line-no">1092</span><span id="line-1092">    }</span>
+<span class="source-line-no">1093</span><span id="line-1093"></span>
+<span class="source-line-no">1094</span><span id="line-1094">    @Override</span>
+<span class="source-line-no">1095</span><span id="line-1095">    public byte[] firstRow() {</span>
+<span class="source-line-no">1096</span><span id="line-1096">      return firstRowBytes;</span>
+<span class="source-line-no">1097</span><span id="line-1097">    }</span>
+<span class="source-line-no">1098</span><span id="line-1098"></span>
+<span class="source-line-no">1099</span><span id="line-1099">    @Override</span>
+<span class="source-line-no">1100</span><span id="line-1100">    public byte[] lastRow() {</span>
+<span class="source-line-no">1101</span><span id="line-1101">      return lastRowBytes;</span>
+<span class="source-line-no">1102</span><span id="line-1102">    }</span>
+<span class="source-line-no">1103</span><span id="line-1103"></span>
+<span class="source-line-no">1104</span><span id="line-1104">    @Override</span>
+<span class="source-line-no">1105</span><span id="line-1105">    public void setFirstRow(String userInput) {</span>
+<span class="source-line-no">1106</span><span id="line-1106">      firstRowBytes = Bytes.toBytesBinary(userInput);</span>
+<span class="source-line-no">1107</span><span id="line-1107">    }</span>
+<span class="source-line-no">1108</span><span id="line-1108"></span>
+<span class="source-line-no">1109</span><span id="line-1109">    @Override</span>
+<span class="source-line-no">1110</span><span id="line-1110">    public void setLastRow(String userInput) {</span>
+<span class="source-line-no">1111</span><span id="line-1111">      lastRowBytes = Bytes.toBytesBinary(userInput);</span>
+<span class="source-line-no">1112</span><span id="line-1112">    }</span>
+<span class="source-line-no">1113</span><span id="line-1113"></span>
+<span class="source-line-no">1114</span><span id="line-1114">    @Override</span>
+<span class="source-line-no">1115</span><span id="line-1115">    public void setFirstRow(byte[] userInput) {</span>
+<span class="source-line-no">1116</span><span id="line-1116">      firstRowBytes = userInput;</span>
+<span class="source-line-no">1117</span><span id="line-1117">    }</span>
+<span class="source-line-no">1118</span><span id="line-1118"></span>
+<span class="source-line-no">1119</span><span id="line-1119">    @Override</span>
+<span class="source-line-no">1120</span><span id="line-1120">    public void setLastRow(byte[] userInput) {</span>
+<span class="source-line-no">1121</span><span id="line-1121">      lastRowBytes = userInput;</span>
+<span class="source-line-no">1122</span><span id="line-1122">    }</span>
+<span class="source-line-no">1123</span><span id="line-1123"></span>
+<span class="source-line-no">1124</span><span id="line-1124">    @Override</span>
+<span class="source-line-no">1125</span><span id="line-1125">    public byte[] strToRow(String input) {</span>
+<span class="source-line-no">1126</span><span id="line-1126">      return Bytes.toBytesBinary(input);</span>
+<span class="source-line-no">1127</span><span id="line-1127">    }</span>
+<span class="source-line-no">1128</span><span id="line-1128"></span>
+<span class="source-line-no">1129</span><span id="line-1129">    @Override</span>
+<span class="source-line-no">1130</span><span id="line-1130">    public String rowToStr(byte[] row) {</span>
+<span class="source-line-no">1131</span><span id="line-1131">      return Bytes.toStringBinary(row);</span>
+<span class="source-line-no">1132</span><span id="line-1132">    }</span>
+<span class="source-line-no">1133</span><span id="line-1133"></span>
+<span class="source-line-no">1134</span><span id="line-1134">    @Override</span>
+<span class="source-line-no">1135</span><span id="line-1135">    public String separator() {</span>
+<span class="source-line-no">1136</span><span id="line-1136">      return ",";</span>
+<span class="source-line-no">1137</span><span id="line-1137">    }</span>
+<span class="source-line-no">1138</span><span id="line-1138"></span>
+<span class="source-line-no">1139</span><span id="line-1139">    @Override</span>
+<span class="source-line-no">1140</span><span id="line-1140">    public String toString() {</span>
+<span class="source-line-no">1141</span><span id="line-1141">      return this.getClass().getSimpleName() + " [" + rowToStr(firstRow()) + ","</span>
+<span class="source-line-no">1142</span><span id="line-1142">        + rowToStr(lastRow()) + "]";</span>
+<span class="source-line-no">1143</span><span id="line-1143">    }</span>
+<span class="source-line-no">1144</span><span id="line-1144">  }</span>
+<span class="source-line-no">1145</span><span id="line-1145">}</span>
 
 
 
