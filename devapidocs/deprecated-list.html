@@ -97,34 +97,30 @@ loadScripts(document, 'script');</script>
 <div class="deprecation-comment">since 2.4.0 and in 3.0.0, to be removed in 4.0.0, replaced by procedure-based
              distributed WAL splitter, see SplitWALManager</div>
 </div>
-<div class="col-summary-item-name even-row-color"><a href="org/apache/hadoop/hbase/coprocessor/CoprocessorService.html" title="interface in org.apache.hadoop.hbase.coprocessor">org.apache.hadoop.hbase.coprocessor.CoprocessorService</a></div>
-<div class="col-last even-row-color">
-<div class="deprecation-comment">Since 2.0. Will be removed in 3.0</div>
-</div>
-<div class="col-summary-item-name odd-row-color"><a href="org/apache/hadoop/hbase/coprocessor/HasMasterServices.html" title="interface in org.apache.hadoop.hbase.coprocessor">org.apache.hadoop.hbase.coprocessor.HasMasterServices</a></div>
-<div class="col-last odd-row-color">
-<div class="deprecation-comment">Since 2.0.0 to be removed in 4.0.0. The hope was that by 3.0.0 we will not need this
-             facility as CoreCoprocessors are integated into core but we failed, so delay the
-             removal to 4.0.0.</div>
-</div>
-<div class="col-summary-item-name even-row-color"><a href="org/apache/hadoop/hbase/coprocessor/HasRegionServerServices.html" title="interface in org.apache.hadoop.hbase.coprocessor">org.apache.hadoop.hbase.coprocessor.HasRegionServerServices</a></div>
+<div class="col-summary-item-name even-row-color"><a href="org/apache/hadoop/hbase/coprocessor/HasMasterServices.html" title="interface in org.apache.hadoop.hbase.coprocessor">org.apache.hadoop.hbase.coprocessor.HasMasterServices</a></div>
 <div class="col-last even-row-color">
 <div class="deprecation-comment">Since 2.0.0 to be removed in 4.0.0. The hope was that by 3.0.0 we will not need this
              facility as CoreCoprocessors are integated into core but we failed, so delay the
              removal to 4.0.0.</div>
 </div>
-<div class="col-summary-item-name odd-row-color"><a href="org/apache/hadoop/hbase/ipc/CoprocessorRpcChannel.html" title="interface in org.apache.hadoop.hbase.ipc">org.apache.hadoop.hbase.ipc.CoprocessorRpcChannel</a></div>
+<div class="col-summary-item-name odd-row-color"><a href="org/apache/hadoop/hbase/coprocessor/HasRegionServerServices.html" title="interface in org.apache.hadoop.hbase.coprocessor">org.apache.hadoop.hbase.coprocessor.HasRegionServerServices</a></div>
 <div class="col-last odd-row-color">
+<div class="deprecation-comment">Since 2.0.0 to be removed in 4.0.0. The hope was that by 3.0.0 we will not need this
+             facility as CoreCoprocessors are integated into core but we failed, so delay the
+             removal to 4.0.0.</div>
+</div>
+<div class="col-summary-item-name even-row-color"><a href="org/apache/hadoop/hbase/ipc/CoprocessorRpcChannel.html" title="interface in org.apache.hadoop.hbase.ipc">org.apache.hadoop.hbase.ipc.CoprocessorRpcChannel</a></div>
+<div class="col-last even-row-color">
 <div class="deprecation-comment">Please stop using this class again, as it is too low level, which is part of the rpc
              framework for HBase. Will be deleted in 4.0.0.</div>
 </div>
-<div class="col-summary-item-name even-row-color"><a href="org/apache/hadoop/hbase/master/procedure/MetaProcedureInterface.html" title="interface in org.apache.hadoop.hbase.master.procedure">org.apache.hadoop.hbase.master.procedure.MetaProcedureInterface</a></div>
-<div class="col-last even-row-color">
+<div class="col-summary-item-name odd-row-color"><a href="org/apache/hadoop/hbase/master/procedure/MetaProcedureInterface.html" title="interface in org.apache.hadoop.hbase.master.procedure">org.apache.hadoop.hbase.master.procedure.MetaProcedureInterface</a></div>
+<div class="col-last odd-row-color">
 <div class="deprecation-comment">only used for <a href="org/apache/hadoop/hbase/master/procedure/RecoverMetaProcedure.html" title="class in org.apache.hadoop.hbase.master.procedure"><code>RecoverMetaProcedure</code></a>. Should be removed along with
              <a href="org/apache/hadoop/hbase/master/procedure/RecoverMetaProcedure.html" title="class in org.apache.hadoop.hbase.master.procedure"><code>RecoverMetaProcedure</code></a>.</div>
 </div>
-<div class="col-summary-item-name odd-row-color"><a href="org/apache/hadoop/hbase/util/HbckErrorReporter.html" title="interface in org.apache.hadoop.hbase.util">org.apache.hadoop.hbase.util.HbckErrorReporter</a></div>
-<div class="col-last odd-row-color">
+<div class="col-summary-item-name even-row-color"><a href="org/apache/hadoop/hbase/util/HbckErrorReporter.html" title="interface in org.apache.hadoop.hbase.util">org.apache.hadoop.hbase.util.HbckErrorReporter</a></div>
+<div class="col-last even-row-color">
 <div class="deprecation-comment">Since 2.3.0. To be removed in hbase4. Use HBCK2 instead. Remove when
              <a href="org/apache/hadoop/hbase/util/HBaseFsck.html" title="class in org.apache.hadoop.hbase.util"><code>HBaseFsck</code></a> is removed.</div>
 </div>
